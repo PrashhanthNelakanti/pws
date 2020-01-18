@@ -6,7 +6,7 @@ pipeline {
 
         stage ('Build') {
             steps {
-                withMaven(maven: 'maven_3_5_0') {
+                withMaven(maven: 'maven_3_5_3') {
                     sh 'mvn clean package'
                 }
             }
@@ -16,7 +16,7 @@ pipeline {
             steps {
 
                 withCredentials([[$class          : 'UsernamePasswordMultiBinding',
-                                  credentialsId   : 'PCF_LOGIN',
+                                  credentialsId   : 'USERNAME',
                                   usernameVariable: 'USERNAME',
                                   passwordVariable: 'PASSWORD']]) {
 
